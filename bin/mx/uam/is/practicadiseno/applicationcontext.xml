@@ -10,23 +10,27 @@
   <bean id="manejador" class="mx.uam.is.practicadiseno.negocio.ManejadorImpl">
   	<constructor-arg><ref bean="mapeador"/></constructor-arg>
   </bean>
+  <!-- Crea el proxy -->
+  <bean id="proxy" class="mx.uam.is.practicadiseno.negocio.ManejadorProxy">
+    <constructor-arg><ref bean="manejador"/></constructor-arg>
+  </bean>
 
   <!-- Crea las ventanas -->
   <bean id="ventana1" class="mx.uam.is.practicadiseno.vista.Ventana">
      <!-- Agregar rerencia al manejador aquí -->
-     <constructor-arg><ref bean="manejador"/></constructor-arg>
+     <constructor-arg><ref bean="proxy"/></constructor-arg>
      <property name="visible" value="true"/>
   </bean>
   
   <bean id="ventana2" class="mx.uam.is.practicadiseno.vista.Ventana">
      <!-- Agregar rerencia al manejador aquí -->
-     <constructor-arg><ref bean="manejador"/></constructor-arg>
+     <constructor-arg><ref bean="proxy"/></constructor-arg>
      <property name="visible" value="true"/>
   </bean>
   
     <bean id="ventana3" class="mx.uam.is.practicadiseno.vista.Ventana">
      <!-- Agregar rerencia al manejador aquí -->
-     <constructor-arg><ref bean="manejador"/></constructor-arg>
+     <constructor-arg><ref bean="proxy"/></constructor-arg>
      <property name="visible" value="true"/>
   </bean>
 
